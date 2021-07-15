@@ -97,6 +97,11 @@ kubctl get cluster-info
 
 
 
+
+
+
+
+
 Thanks.
 
 
