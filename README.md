@@ -63,7 +63,7 @@ kubectl version --client
 kubectl cluster-info 
 ```
 
-Or install using .deb package management in ubuntu
+#### Or install using .deb package management in ubuntu
 1.Update the apt package index and install packages needed to use the Kubernetes apt repository
 ```bash
 sudo apt-get update
@@ -95,10 +95,32 @@ sudo apt-get install -y kubectl
 kubctl get cluster-info
 ```
 
+#### Install and Set Up kubectl on Windows
 
+1.Install kubectl binary with curl on Windows 
 
+```bash
+curl -LO https://dl.k8s.io/release/v1.21.0/bin/windows/amd64/kubectl.exe
+```
 
+2.Validate the binary (optional)
+Download the kubectl checksum file
 
+```bash
+curl -LO https://dl.k8s.io/v1.21.0/bin/windows/amd64/kubectl.exe.sha256
+```
+
+3.Using PowerShell to automate the verification using the -eq operator to get a True or False result:
+```bash
+$($(CertUtil -hashfile .\kubectl.exe SHA256)[1] -replace " ", "") -eq $(type .\kubectl.exe.sha256)
+
+```
+4.Add the binary in to your PATH.
+
+5.Test to ensure the version of kubectl is the same as downloaded:
+```bash
+kubectl version --client
+```
 
 
 
